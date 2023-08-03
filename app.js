@@ -10,6 +10,6 @@ app.get('/', (req,res) => res.send("API-USER"));
 
 app.post('/user', userController.createUser);
 
-app.get('/user', userController.pegarDados)
+app.get('/user', userController.pegarDados);
 
 
