@@ -17,7 +17,12 @@ const createUser = async (req, res) => {
 
 
 const pegarDados = async (req, res) => {
-    createUser.findAll({})
-}
+    const users = await User.findAll();
+     return res.json(users);
+     console.log('cadastro realizado com sucesso');
+    
+    }
+
+
 
 module.exports = { createUser, pegarDados };
