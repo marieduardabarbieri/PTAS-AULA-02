@@ -19,7 +19,7 @@ const createUser = async (req, res) => {
 const pegarDados = async (req, res) => {
     const users = await User.findAll();
      return res.json(users);
-     console.log('cadastro realizado com sucesso');
+    
     
     }
 
