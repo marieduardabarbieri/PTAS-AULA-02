@@ -15,4 +15,9 @@ const createUser = async (req, res) => {
     })
 }
 
-module.exports = { createUser };
+
+const pegarDados = async (req, res) => {
+    createUser.findAll({})
+}
+
+module.exports = { createUser, pegarDados };
