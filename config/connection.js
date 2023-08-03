@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize(
-  "url ElephantSQL", {
+  "postgres://mvmjomdk:BY20nv0LlbA7-7DfEHpXKP7k2cgtn6Vz@babar.db.elephantsql.com/mvmjomdk", {
   define: {
     timetamps: true,
     underscored: true,
