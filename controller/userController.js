@@ -50,4 +50,20 @@ const deleteUser = async (req, res) => {
     )
 }
 
-module.exports = { createUser, pegarDados };
+const autenticarUser = async (req, res) => {
+    const {password, email}  = req.body;
+    try{
+        const isAutenticarUser = await User.findOne({
+            where: {
+                password: password,
+                email: email       
+                 } 
+        })
+        return res.json(isAutenticarUser);
+    }
+   catch (error){
+    return res.json("Usuario não encointrado")
+   }
+}
+
+module.exports = { createUser, pegarDados, deleteUser, updateUser, autenticarUser };
