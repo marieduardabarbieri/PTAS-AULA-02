@@ -1,3 +1,4 @@
+const { password } = require('pg/lib/defaults');
 const User = require('../model/user');
 
 const createUser = async (req, res) => {
@@ -31,13 +32,22 @@ const deleteUser = async (req, res) => {
         })
  }
 
- const upsdateUser = async (req, res) => {
+ const updateUser = async (req, res) => {
     const id = req.params;
-    await User.destroy({
-        where:{
-            id:id
+    const {name, password, email} = req.body
+    const transformaId = parseInt(id)
+    await User.update(
+        {
+            name: name,
+            password: password,
+            email: email
+        },
+      { 
+         where: {
+            id:transformaId
         }
-    })
+    }
+    )
 }
 
 module.exports = { createUser, pegarDados };
