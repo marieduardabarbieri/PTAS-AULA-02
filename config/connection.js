@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize(
-  "postgres://mvmjomdk:BY20nv0LlbA7-7DfEHpXKP7k2cgtn6Vz@babar.db.elephantsql.com/mvmjomdk", {
+  "postgres://yxwstqqn:SJNvNiw1xTR-UY2P2VQbszSa7NN0geiu@silly.db.elephantsql.com/yxwstqqn", { //banco de dados "ptas-2" email mariaeduardaestudante
   define: {
     timetamps: true,
     underscored: true,
