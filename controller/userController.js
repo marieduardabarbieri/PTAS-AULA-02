@@ -20,9 +20,13 @@ const pegarDados = async (req, res) => {
     const users = await User.findAll();
      return res.json(users);
     
-    
     }
 
-
+const deletar = async (req, res) => {
+        const id = req.params;
+        const users = await User.findAll();
+         return res.json(users);
+        
+        }
 
 module.exports = { createUser, pegarDados };
