@@ -31,4 +31,13 @@ const deleteUser = async (req, res) => {
         })
  }
 
+ const upsdateUser = async (req, res) => {
+    const id = req.params;
+    await User.destroy({
+        where:{
+            id:id
+        }
+    })
+}
+
 module.exports = { createUser, pegarDados };
