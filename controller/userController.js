@@ -1,5 +1,7 @@
 const { password } = require('pg/lib/defaults');
 const User = require('../model/user');
+const secret = require('../config/auth.json');
+const jwt = require('jsonwebtoken');
 
 const createUser = async (req, res) => {
     const { name, password, email } = req.body;
@@ -11,7 +13,6 @@ const createUser = async (req, res) => {
         res.json('Cadastro de usuário realizado com sucesso!');
         console.log('Cadastro de usuário realizado com sucesso!');
     }).catch((erro) => {
-        res.error();
         console.log(`Ops, deu erro: ${erro}`);
     })
 }
@@ -59,7 +60,14 @@ const autenticarUser = async (req, res) => {
                 email: email       
                  } 
         })
-        return res.json(isAutenticarUser);
+        const token = jwt.sign({id:email}, secret.secret,{
+            expiresIn: 86400,
+        })
+        return res.json({
+            name:isAutenticarUser.name,     
+            password:isAutenticarUser.password,
+            email:isAutenticarUser.email,
+        });
     }
    catch (error){
     return res.json("Usuario não encointrado")
